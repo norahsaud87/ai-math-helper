@@ -17,16 +17,16 @@ function App() {
       setError('المتصفح لا يدعم التعرف على الصوت.');
       return;
     }
-
+  
     const recognition = new SpeechRecognition();
     recognition.lang = 'ar-SA';
     recognition.start();
-
+  
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       setQuestion(transcript);
     };
-
+  
     recognition.onerror = (event) => {
       setError('حدث خطأ أثناء استخدام الميكروفون.');
       console.error(event);
@@ -54,7 +54,7 @@ function App() {
   };
 
   const handleSolve = async () => {
-    const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
     if (!question) return;
 
     setLoading(true);
