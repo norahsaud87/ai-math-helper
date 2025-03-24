@@ -55,12 +55,13 @@ function App() {
 
   const handleSolve = async () => {
     const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    console.log("API Key:", apiKey); // <-- هنا نطبع المفتاح
+  
     if (!question) return;
-
+  
     setLoading(true);
     setAnswer('');
     setError('');
-
     try {
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
