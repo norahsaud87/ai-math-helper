@@ -54,8 +54,7 @@ function App() {
   };
 
   const handleSolve = async () => {
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    console.log("API Key:", apiKey); // <-- هنا نطبع المفتاح
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
   
     if (!question) return;
   
